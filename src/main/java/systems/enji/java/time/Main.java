@@ -125,11 +125,15 @@ public class Main {
 
         // simply removes the "offset" part
         p(OffsetDateTime.parse(DATE_STRING_Z).toLocalDateTime(), "from ODT (UTC)");
+        p(LocalDateTime.from(OffsetDateTime.parse(DATE_STRING_Z)), "from ODT (UTC)");
         p(OffsetDateTime.parse(DATE_STRING_OFFSET_7).toLocalDateTime(), "from ODT (offset 7)");
+        p(LocalDateTime.from(OffsetDateTime.parse(DATE_STRING_OFFSET_7)), "from ODT (offset 7)");
 
         // simply removes the "offset/zone" part
         p(ZonedDateTime.parse(DATE_STRING_Z).toLocalDateTime(), "from ZDT (UTC)");
+        p(LocalDateTime.from(ZonedDateTime.parse(DATE_STRING_Z)), "from ZDT (UTC)");
         p(ZonedDateTime.parse(DATE_STRING_OFFSET_7).toLocalDateTime(), "from ZDT (offset 7)");
+        p(LocalDateTime.from(ZonedDateTime.parse(DATE_STRING_OFFSET_7)), "from ZDT (offset 7)");
 
     }
 
@@ -141,10 +145,14 @@ public class Main {
         p(LocalDateTime.parse(DATE_STRING).toInstant(ZONE_OFFSET_7), "from LDT (offset 7)");
 
         p(OffsetDateTime.parse(DATE_STRING_Z).toInstant(), "from ODT (UTC)");
+        p(Instant.from(OffsetDateTime.parse(DATE_STRING_Z)), "from ODT (UTC)");
         p(OffsetDateTime.parse(DATE_STRING_OFFSET_7).toInstant(), "from ODT (offset 7)");
+        p(Instant.from(OffsetDateTime.parse(DATE_STRING_OFFSET_7)), "from ODT (offset 7)");
 
         p(ZonedDateTime.parse(DATE_STRING_Z).toInstant(), "from ZDT (UTC)");
+        p(Instant.from(ZonedDateTime.parse(DATE_STRING_Z)), "from ZDT (UTC)");
         p(ZonedDateTime.parse(DATE_STRING_OFFSET_7).toInstant(), "from ZDT (offset 7)");
+        p(Instant.from(ZonedDateTime.parse(DATE_STRING_OFFSET_7)), "from ZDT (offset 7)");
 
     }
 
@@ -162,9 +170,13 @@ public class Main {
         p(OffsetDateTime.ofInstant(Instant.parse(DATE_STRING_Z), ZONE_ID_SYDNEY), "from instant (Sydney)");
 
         p(ZonedDateTime.parse(DATE_STRING_Z).toOffsetDateTime(), "from ZDT (UTC)");
+        p(OffsetDateTime.from(ZonedDateTime.parse(DATE_STRING_Z)), "from ZDT (UTC)");
         p(ZonedDateTime.parse(DATE_STRING_OFFSET_7).toOffsetDateTime(), "from ZDT (offset 7)");
+        p(OffsetDateTime.from(ZonedDateTime.parse(DATE_STRING_OFFSET_7)), "from ZDT (offset 7)");
         p(ZonedDateTime.parse(DATE_STRING_VIENNA).toOffsetDateTime(), "from ZDT (Vienna)");
+        p(OffsetDateTime.from(ZonedDateTime.parse(DATE_STRING_VIENNA)), "from ZDT (Vienna)");
         p(ZonedDateTime.parse(DATE_STRING_SYDNEY).toOffsetDateTime(), "from ZDT (Sydney)");
+        p(OffsetDateTime.from(ZonedDateTime.parse(DATE_STRING_SYDNEY)), "from ZDT (Sydney)");
 
     }
 
@@ -206,6 +218,7 @@ public class Main {
         }
 
         p(OffsetDateTime.parse(DATE_STRING_OFFSET_7).toZonedDateTime(), "from ODT (with ODT offset 7)");
+        p(ZonedDateTime.from(OffsetDateTime.parse(DATE_STRING_OFFSET_7)), "from ODT (with ODT offset 7)");
         p(OffsetDateTime.parse(DATE_STRING_OFFSET_7).atZoneSameInstant(ZONE_ID_VIENNA), "from ODT (with ODT offset 7) at Vienna (same instant)");
         p(OffsetDateTime.parse(DATE_STRING_OFFSET_7).atZoneSimilarLocal(ZONE_ID_VIENNA), "from ODT (with ODT offset 7) at Vienna (similar local)");
 
